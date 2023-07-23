@@ -2,15 +2,14 @@ const app = require("./app");
 
 const connectDatabase = require("./config/database");
 require("dotenv").config();
-const cors = require("cors");
-app.use(cors());
+
 
 connectDatabase()
 
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`App Listen at Port ${process.env.PORT}`);
 });
 

@@ -1,0 +1,21 @@
+
+.register {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .register-wraper{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 350px;
+    }
+    p.text{
+        font-size: 16px;
+        text-align: center;
+        a{
+            color: rgb(77, 77, 223);
+        }
+    }
+}

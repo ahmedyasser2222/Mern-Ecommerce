@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Cairo-Bold";
+  src: url("../../../assets/fonts/cairo/static/Cairo-Black.ttf");
+}
+@import "../../../assets/style/color.scss";
+
+.navbar {
+  background-color: #ddd;
+  .navbar-wraper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+
+    .logo {
+      a {
+        font-size: 35px;
+        font-family: "Cairo-Bold", sans-serif !important;
+      }
+    }
+    .items,
+    .auth {
+      display: flex;
+      gap: 15px;
+      .register-btn {
+        background-color: #fff ;
+      }
+      .login-btn {
+        background-color: $primary ;
+        color: white;
+      }
+      .drop-menu {
+        position: relative !important ;
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+        border: 1px solid;
+        width: 10%;
+        background-color: #ddd;
+        color: white !important;
+      }
+    }
+    .menu{
+      cursor: pointer;
+      display: none ;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+@media screen and (max-width : 600px) {
+    .menu { 
+      display: flex !important;
+    }
+    .auth , .items{
+      display: none !important;
+    }
+
+}

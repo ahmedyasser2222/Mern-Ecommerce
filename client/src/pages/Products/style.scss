@@ -1,0 +1,50 @@
+
+.products {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 15px;
+        padding: 25px 0;
+        .filter {
+            flex: 2;
+            height: max-content;
+            .item-tree {
+                padding: 10px 0;
+                margin: 8px 0;
+            }
+            .form-group {
+                span {
+                    font-size: small !important;
+                }
+               
+            }
+            .price-filter {
+                display: flex;
+                gap: 8px;
+                padding: 15px;
+                input {
+                    font-size: 10px;
+                    padding-left: 4px;
+                    padding-right: 0;
+                }
+            }
+            
+        }
+        .cards {
+            flex: 8;
+            .cards-products {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: 15px 3px;
+            }
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+    
+}
