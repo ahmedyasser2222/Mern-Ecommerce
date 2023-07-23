@@ -14,7 +14,7 @@ exports.isAuthenticatedUser = async (req, res, next) => {
     }
     const decodedData = jwt.verify(authorization, process.env.JWT_SECRET);
     req.user = await User.findOne({ _id: decodedData.id, verified: true });
-    if (!user) {
+    if (!req.user ) {
       return res.status(401).json({
         success: false,
         message: "Please Login to access this resource",
