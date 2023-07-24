@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.91116bbf.css",
+    "main.js": "/static/js/main.f78774c8.js",
+    "static/media/Cairo-Black.ttf": "/static/media/Cairo-Black.fb862267eaaa2efeae32.ttf",
+    "static/media/Cairo-Medium.ttf": "/static/media/Cairo-Medium.58deadbf05ef43abbdbd.ttf",
+    "index.html": "/index.html",
+    "main.91116bbf.css.map": "/static/css/main.91116bbf.css.map",
+    "main.f78774c8.js.map": "/static/js/main.f78774c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91116bbf.css",
+    "static/js/main.f78774c8.js"
+  ]
+}
