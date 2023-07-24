@@ -8,64 +8,45 @@ import { Pagination, Navigation, FreeMode } from "swiper/modules";
 const list = [
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/d25cbf25-3b5b-48e4-b9d7-830e8911911d.png?format=avifundefined",
+      "https://f.nooncdn.com/p/pzsku/Z4D1012785DC1C7040E82Z/45/_/1685694026/595798fc-0951-4432-8a47-270cb0c8e9d7.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/57f1cbed-2a90-4119-95e3-e080bbdaf42b.png?format=avifundefined",
+      "https://f.nooncdn.com/p/v1634454925/N48658848V_1.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/a5b1bad7-a345-4b1a-937e-7ad49dbe680b.png?format=avifundefined",
+      "https://f.nooncdn.com/p/v1649763287/N53090811V_1.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/e1c91436-8654-4583-bc7a-dae08b2b6bb8.png?format=avifundefined",
+      "https://f.nooncdn.com/p/v1614670320/N43231820V_1.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/222251ec-1493-4d4f-bf23-6527bae8958b.png?format=avifundefined",
+      "https://f.nooncdn.com/p/v1565094805/N28975610A_1.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/1d1d25c2-ec60-49e8-8e7b-71d0483712f1.png?format=avifundefined",
+      "https://f.nooncdn.com/p/pzsku/Z9E89C879E64AC827B1D1Z/45/_/1674139180/da16d4cb-5b6a-46c3-bea1-0d77e9803713.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/79057646-9f68-4622-ab81-3f7d04d03bde.png?format=avifundefined",
+      "https://f.nooncdn.com/p/pzsku/Z736625010391AE016DCEZ/45/_/1674139152/e3db7a04-c118-41e3-b816-bee493ea2223.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/fcfdeae6-6bd3-4ee7-b586-2c3319c456ed.png?format=avifundefined",
+      "https://f.nooncdn.com/p/pzsku/Z736625010391AE016DCEZ/45/_/1674139152/e3db7a04-c118-41e3-b816-bee493ea2223.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/57f1cbed-2a90-4119-95e3-e080bbdaf42b.png?format=avifundefined",
+      "https://f.nooncdn.com/p/pzsku/ZD8D0736132E12CABD86FZ/45/_/1674139171/62ac2102-b0fa-43ce-b4ad-55578f48539b.jpg?format=avif&width=240",
   },
   {
     image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/a5b1bad7-a345-4b1a-937e-7ad49dbe680b.png?format=avifundefined",
-  },
-  {
-    image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/e1c91436-8654-4583-bc7a-dae08b2b6bb8.png?format=avifundefined",
-  },
-  {
-    image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/222251ec-1493-4d4f-bf23-6527bae8958b.png?format=avifundefined",
-  },
-  {
-    image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/1d1d25c2-ec60-49e8-8e7b-71d0483712f1.png?format=avifundefined",
-  },
-  {
-    image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/79057646-9f68-4622-ab81-3f7d04d03bde.png?format=avifundefined",
-  },
-  {
-    image:
-      "https://f.nooncdn.com/mpcms/EN0003/assets/fcfdeae6-6bd3-4ee7-b586-2c3319c456ed.png?format=avifundefined",
-  },
+      "https://f.nooncdn.com/p/pzsku/ZDF87ED2F2C05A3328E4BZ/45/_/1685694048/1a19eefa-19f6-4660-8aa3-f16b61cb36e5.jpg?format=avif&width=240",
+  }
+  
 ];
 
 const Card = ({ image }) => (

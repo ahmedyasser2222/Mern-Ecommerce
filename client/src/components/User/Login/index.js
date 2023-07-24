@@ -31,8 +31,8 @@ const Login = () => {
       navigate("/");
       
     } catch (err) {
-      setLoading(false);
-      dispatch(setToast({open : true , text : `Error ,${err.response.data.message}` , mode : "success" }))
+       setLoading(false);
+       dispatch(setToast({open : true , text : `Error ,${err.response.data.message }` , mode : "error" }))
     }
   };
 

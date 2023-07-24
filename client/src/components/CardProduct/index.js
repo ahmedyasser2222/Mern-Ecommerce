@@ -5,23 +5,24 @@ import { Tooltip } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Rate from '../Rate'
 
-const CardProduct = ({product = {images : [ { url : "" }] }}) => {
+const CardProduct = ({image , product = {images : [ { url : "" }] }}) => {
   return (
     <Link to={`/products/${product._id}`}>
       <div className='card-product'>
         <div className='div-img'>
-            <img src={product.images[0].url} />
+          {image ? <img src={image} /> : <img src={product.images[0].url} />}
+            {/* <img src={product.images[0].url} /> */}
         </div>
         <div className='details'>
             <div className='title'>
             <Tooltip title={product.name} color='#222' >
-                 <p>{String(product.name).substring(0,40) + "..."}</p>
+                 <p>{image ? "Adidas Grand Court TD Lifestyle Casual" : String(product.name).substring(0,40) + "..."}</p>
             </Tooltip>
             </div>
             <div className='end'>
             <div className='price'>
                 <span className='cur'>EGP</span>
-                <span className='mag'>{product.price}</span>
+                <span className='mag'>{image ? 180 : product.price}</span>
             </div>
               <Rate />
             </div>
