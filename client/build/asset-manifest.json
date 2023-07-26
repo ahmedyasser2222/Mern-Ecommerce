@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.c84fa3c7.css",
-    "main.js": "/static/js/main.48aec138.js",
+    "main.css": "/static/css/main.ecfbb7d0.css",
+    "main.js": "/static/js/main.3cd27563.js",
     "static/media/Cairo-Black.ttf": "/static/media/Cairo-Black.fb862267eaaa2efeae32.ttf",
     "static/media/Cairo-Medium.ttf": "/static/media/Cairo-Medium.58deadbf05ef43abbdbd.ttf",
     "index.html": "/index.html",
-    "main.c84fa3c7.css.map": "/static/css/main.c84fa3c7.css.map",
-    "main.48aec138.js.map": "/static/js/main.48aec138.js.map"
+    "main.ecfbb7d0.css.map": "/static/css/main.ecfbb7d0.css.map",
+    "main.3cd27563.js.map": "/static/js/main.3cd27563.js.map"
   },
   "entrypoints": [
-    "static/css/main.c84fa3c7.css",
-    "static/js/main.48aec138.js"
+    "static/css/main.ecfbb7d0.css",
+    "static/js/main.3cd27563.js"
   ]
 }

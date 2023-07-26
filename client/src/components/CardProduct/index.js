@@ -7,7 +7,7 @@ import Rate from '../Rate'
 
 const CardProduct = ({image , product = {images : [ { url : "" }] }}) => {
   return (
-    <Link to={`/products/${product._id}`}>
+    <Link to={`/products/${product._id || "64bc03a45d7792ffb41181ed"}`}>
       <div className='card-product'>
         <div className='div-img'>
           {image ? <img src={image} /> : <img src={product.images[0].url} />}

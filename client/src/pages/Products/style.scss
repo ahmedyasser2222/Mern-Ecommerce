@@ -48,3 +48,9 @@
         }
     
 }
+@media screen and (width <=768px ) {
+    .products {
+        flex-direction: column;
+        padding: 20px;
+    }
+}

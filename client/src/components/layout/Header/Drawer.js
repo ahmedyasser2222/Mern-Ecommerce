@@ -22,6 +22,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useSelector } from "react-redux";
 import { SwipeableDrawer } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import ShoppingCart from "@mui/icons-material/ShoppingCart";
 
 export default function TemporarDrawer({ open, setOpen, logout }) {
   const userData = useSelector((state) => state.userSlice);
@@ -115,7 +116,10 @@ export default function TemporarDrawer({ open, setOpen, logout }) {
       </List>
       <Divider />
       {userData.authenticated ? (
+        <>
+        <CustomeListItem Icon={<ShoppingCart />} text={`Cart(${userData.cartProductsNum})`}  url="/cart" />
         <CustomeListItem Icon={<LogoutIcon />} text="Logout"  onClick={() => logout()} />
+        </>
       ) : (
         <List>
           {authList.map((item, index) => (
@@ -144,8 +148,9 @@ export default function TemporarDrawer({ open, setOpen, logout }) {
           onClose={() => setOpen(false)}
           disableBackdropTransition={!iOS}
           disableDiscovery={iOS}
+          
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", sm: "none"  },
             "& .MuiDrawer-paper": { boxSizing: "border-box", width: 260 },
           }}
         >

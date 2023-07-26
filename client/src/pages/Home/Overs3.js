@@ -77,15 +77,15 @@ const Overs3 = () => {
           breakpoints={{
             250: {
               slidesPerView: 1,
-              spaceBetween: 5,
+              spaceBetween: 0,
             },
             280: {
               slidesPerView: 1,
-              spaceBetween: 5,
+              spaceBetween: 0,
             },
             450: {
               slidesPerView: 2,
-              spaceBetween: 5,
+              spaceBetween: 15,
             },
             768: {
               slidesPerView: 4,

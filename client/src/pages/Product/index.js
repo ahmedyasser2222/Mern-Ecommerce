@@ -31,7 +31,7 @@ const Product = () => {
     <div className="container-app">
       <div className="container">
         <div>
-          <div className="product">
+          <div className="product-page">
             <ImageProduct images={data.product.images} />
             <DetailsProduct product={data.product} />
           </div>

@@ -4,6 +4,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import TreeItem from "@mui/lab/TreeItem";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Button,
   Checkbox,
@@ -11,12 +14,22 @@ import {
   FormGroup,
   Slider,
   TextField,
+  Typography,
 } from "@mui/material";
 
 const Filter = () => {
   return (
     <div className="filter">
-      <TreeView
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Filter</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <TreeView
         aria-label="file system navigator"
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}
@@ -77,6 +90,9 @@ const Filter = () => {
           </div>
         </TreeItem>
       </TreeView>
+        </AccordionDetails>
+      </Accordion>
+    
     </div>
   );
 };

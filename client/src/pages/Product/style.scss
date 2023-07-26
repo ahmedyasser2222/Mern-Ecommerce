@@ -1,4 +1,4 @@
-.product {
+.product-page {
   display: flex;
   padding: 30px;
   position: relative;
@@ -10,9 +10,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    position: sticky;
-    top: 0;
-    left: 0;
+   
     .list-images {
       display: flex;
       flex-direction: column;
@@ -119,5 +117,14 @@
       }
       
     }
+  }
+}
+
+@media screen and (width <=768px ) {
+  .product-page{
+      flex-direction: column;
+      .details-product{
+        width: 100%;
+      }
   }
 }
