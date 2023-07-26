@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="footer ">
-      <div className="container-app">
+    <div className="container-app">
         <div className="container">
+        <div className="footer ">
           <div className="links ">
             <div className="cards">
               <div className="card">

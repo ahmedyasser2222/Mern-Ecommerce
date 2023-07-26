@@ -116,6 +116,19 @@
     gap: 10px;
     width: 100%;
     background-color: #efefef;
+    .card {
+      width: 290px;
+      height: 220px;
+      position: relative;
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+      }
+    }
   }
 }
 
@@ -126,6 +139,19 @@
 
   .cards {
     background-color: #fcf8f4;
+    .card {
+      width: 310px;
+      height: 290px;
+      position: relative;
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+      }
+    }
   }
 }
 
@@ -158,6 +184,19 @@
 
   .cards {
     background-color: white;
+    .card {
+      width: 230px;
+      height: 290px;
+      position: relative;
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+      }
+    }
   }
 }
 
@@ -165,10 +204,12 @@
 .footer {
   border-top: 1px solid #ddd;
   display: flex;
+  flex-direction: column;
 
   .links {
     padding: 25px;
-
+    justify-content: space-between;
+    width: 100%;
     .cards {
       display: flex;
       justify-content: space-evenly;

@@ -6,10 +6,11 @@ import { useParams } from "react-router-dom";
 import { URL } from "../../API";
 import CircularProgressLoading from "../../components/CircularProgressLoading";
 import axios from "axios";
+import ReviewProduct from "./ReviewProduct";
 
 const Product = () => {
   const [data, setData] = useState({
-    product: { images: [{ url: "" }], category: { name: "" } , name : "" , price : 0 , stock : 0, description : "" },
+    product: { images: [{ url: "" }], category: { name: "" } , name : "" , price : 0 , stock : 0, description : "" , reviews : [] },
   });
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -35,6 +36,7 @@ const Product = () => {
             <ImageProduct images={data.product.images} />
             <DetailsProduct product={data.product} />
           </div>
+          <ReviewProduct product={data.product} setData={setData}/>
         </div>
       </div>
       <CircularProgressLoading loading={loading} />

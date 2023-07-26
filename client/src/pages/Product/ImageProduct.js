@@ -12,7 +12,7 @@ const CardList = ({ seleced, image, num, photoNum, setPhotoNum }) => {
       className={`card-list ${photoNum == num && "select"}`}
       onClick={() => setPhotoNum(num)}
     >
-      <img src={image} />
+      {image && <img src={image} alt="Product" />}
     </div>
   );
 };
@@ -56,7 +56,7 @@ const ImageProduct = ({ images = [ { url : "https://media.taager.com/360x360/05f
       <ReactImageMagnify
         {...{
           smallImage: {
-            alt: "",
+            alt: "Product",
             isFluidWidth: true,
             src: images[photoNum].url,
            

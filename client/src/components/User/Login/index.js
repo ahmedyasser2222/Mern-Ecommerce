@@ -12,6 +12,7 @@ import { setUser } from "../../../redux/slices/userSlices";
 import { setToast } from "../../../redux/slices/toastSlice";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
+import "../style.scss";
 
 const Login = () => {
   const navigate = useNavigate();

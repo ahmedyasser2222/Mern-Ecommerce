@@ -1,5 +1,5 @@
 const express = require("express");
-const { createProduct, getAllProducts, getProductDetails } = require("../controller/productController");
+const { createProduct, getAllProducts, getProductDetails, createProductReview } = require("../controller/productController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const uploadImage = require("../middleware/photoUpload")
 
@@ -11,6 +11,8 @@ router
 
 router.route("/products").get(getAllProducts);
 router.route("/product/:id").get(getProductDetails);
+
+router.route("/review").put(isAuthenticatedUser, createProductReview);
 
 
 
