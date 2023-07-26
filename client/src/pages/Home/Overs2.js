@@ -33,8 +33,8 @@ const Overs2 = () => {
          </div>
          <div className='cards '>
             {
-                list.map( item => (
-                    <Card image={item.image}/>
+                list.map( (item,index) => (
+                    <Card image={item.image} key={index}/>
                 ) )
             }
             

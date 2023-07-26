@@ -1,8 +1,9 @@
 const mongoose = require("mongoose")
 
-const categorySchema = mongoose.Schema({
+const categorySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique : true,
     required: [true, "Please Enter category Name"],
     trim: true,
   },
@@ -28,4 +29,4 @@ const categorySchema = mongoose.Schema({
   
 });
 
-module.exports = mongoose.model("Category", categorySchema)
+module.exports =  mongoose.model("Category", categorySchema)

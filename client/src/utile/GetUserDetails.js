@@ -14,9 +14,8 @@ const GetUserDetails = ({ children }) => {
         dispatch(logout());
       } else {
         try {
-          console.log(Cookies.get("token"))
           const res = await axios.get(`${URL}/api/v1/me`, {
-            headers: { authorization: Cookies.get("token") || "" },
+            headers: { authorization: `Bearer ${Cookies.get("token")}` || "" },
           });
           dispatch(setUser(res.data.user));
         } catch (err) {

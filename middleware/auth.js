@@ -4,7 +4,7 @@ const User = require("../models/userModel");
 
 exports.isAuthenticatedUser = async (req, res, next) => {
   try {
-    const { authorization } = req.headers;
+    const  authorization  = req.headers.authorization.split(" ")[1];
 
     if (!authorization) {
       return res.status(401).json({

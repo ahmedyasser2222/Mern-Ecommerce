@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
-/* const cors = require("cors");
-app.use(cors()); */
+const cors = require("cors");
+app.use(cors({
+  origin : ["http://localhost:3000","https://ecommerce-souq.onrender.com"]
+}));
 const errorMiddleware = require("./middleware/errorMW");
 const path = require("path")
 

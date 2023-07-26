@@ -1,90 +1,123 @@
 .product {
+  display: flex;
+  padding: 30px;
+  position: relative;
+  justify-content: center;
+  gap: 35px;
+  .image-product {
+    height: max-content;
+      flex: 2;
     display: flex;
-    padding: 30px ;
-    position: relative;
     justify-content: center;
-    gap: 35px;
-    .image-product {
-        height: max-content;
-      /*   flex: 2; */
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    .list-images {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .card-list {
+        width: 70px;
+        height: 100px;
+        position: relative;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &.select {
+          border: 1px solid;
+        }
+      }
+    }
+
+    .div-img {
+      width: 300px;
+      height: 450px;
+      position: relative;
+      div,
+      img {
+        z-index: 999 !important;
+      }
+    }
+  }
+  .details-product {
+      flex: 3;
+    h1 {
+      font-size: 22px;
+      padding: 8px 0;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .price,
+    .descount,
+    .rate-product {
+      display: flex;
+      span.text {
+        width: 90px;
+        font-size: 16px !important;
+      }
+    }
+    .price {
+      span {
+        font-size: larger;
+        font-weight: bold;
+      }
+    }
+    .descount {
+      margin: 10px 0;
+      span:not(.text) {
+        text-decoration: line-through;
+      }
+    }
+
+    .action {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      .select{
         display: flex;
-        justify-content: center;
-        gap: 20px;
-        position: sticky;
-        top: 0;left: 0;
-        .list-images{
+        margin-right: 20px;
+        margin: 10px 0;
+        label {
+            width: 90px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            .card-list {
-                width: 70px;
-                height: 100px;
-                position: relative;
-                img {
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100%; height: 100%;
-                    object-fit: cover;
-                }
-                &.select{
-                    border: 1px solid;
-                }
-            }
-            
         }
-        .div-img {
-            width: 300px;
-            height: 450px;
-            position: relative;
-            
+        select {
+            padding: 0px 13px;
+            border: 1px solid #551A8B;
+            outline: none;
         }
-        
+      }
     }
-    .details-product {
-      /*   flex: 3; */
-        h1 {
-            font-size: 22px;
-            padding: 8px 0;
-            font-weight: bold;
-        }
-        h3 {
-            font-size: 16px;
-            font-weight: 500;
-        }
-        .price , .descount, .rate-product {
-            display: flex;
-            span.text{
-                width: 90px ;   
-                font-size: 16px !important;             
-            }
-        }
-        .price {
-            span{
-                font-size: larger;
-                font-weight: bold;
-            }
-        }
-        .descount {
-            margin: 10px 0;
-            span:not(.text){
-                text-decoration: line-through;                
-            }
-        }
-        
-        .action {
-            display: flex;
-            align-items: center;
-        }
-        .desc {
-            margin: 15px 0;
-        }
-        input , .input {
-            z-index: -1 !important;
-        }
-        .ss ,.sss {
-            display: none !important;
-            z-index: 8;
-        }
-        
+    .desc {
+      margin: 15px 0;
     }
+    input,
+    .input {
+      z-index: -1 !important;
+    }
+    button {
+      background-color: #551A8B;
+      width: 200px;
+      height: 50px;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 5px;
+      &:active {
+        background-color: #3c0d68;
+        color: white;
+      }
+      
+    }
+  }
 }

@@ -12,9 +12,15 @@ import {
 import React, { useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Rate from "../../components/Rate";
+import axios from "axios"
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { setToast } from "../../redux/slices/toastSlice";
+import { URL } from "../../API";
+import { incrementCartproduct } from "../../redux/slices/userSlices"
 
 const DetailsProduct = ({ product }) => {
-  const [age, setAge] = React.useState("");
+  const [quantity, setQuantity] = useState(1);
   const [levelSelect, setLevelSelect] = useState([
     { value: 1 },
     { value: 2 },
@@ -22,25 +28,38 @@ const DetailsProduct = ({ product }) => {
     { value: 4 },
     { value: 5 },
   ]);
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleChangeQuantity = (event) => {
+    setQuantity(event.target.value);
   };
-
-  /* useEffect(()=>{
-    function setLevel(){
-      let s = []
-      for(let i = 1 ; i <= (product.stock || 1) ; i++){
-        s.push({value : i})
-      }
-      setLevelSelect(s)
+ 
+  const handleAddToCart = async(e)=>{
+    e.preventDefault() 
+    const body = {
+      _id : product._id,
+      category : product.category._id
     }
-    setLevel()
-  },[]) */
+    console.log(body)
+      try {
+        setLoading(true);
+        const res = await axios.post(`${URL}/api/v1/addtocart`, body , { headers : { Authorization :`Bearer ${Cookies.get("token")}` } });
+        setLoading(false);
+        dispatch(setToast({open : true , text : res.data.message , mode : "success" }))
+        dispatch(incrementCartproduct())
+      } catch (err) {
+         setLoading(false);
+         console.log(err)
+         dispatch(setToast({open : true , text : err.response.data.message , mode : "error" }))
+      }
+    };
+
+
 
   return (
     <div className="details-product">
-      <h4>{product.category.name}</h4>
+      <p className="cat-name">{product.category.name}</p>
       <h1>{product.name}</h1>
       <p className="price">
         <span className="text">Price :</span>
@@ -52,57 +71,19 @@ const DetailsProduct = ({ product }) => {
       </p>
       <Rate singleProduct />
       <div className="action ">
-        <FormControl sx={{ m: 1, minWidth: 100 }}>
-          <InputLabel
-            id="demo-simple-select-helper-label"
-            sx={{ zIndex: "-1" }}
-          >
-            Quantity
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            value={age}
-            label="Quantity"
-            onChange={handleChange}
-            sx={{ m: 1, minWidth: 100, height: "50px" /* zIndex: "-1" */ }}
-          >
-            {levelSelect.map((item, index) => (
-              <MenuItem value={item.value} key={index}>
-                {item.value}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Button
-          sx={{
-            backgroundColor: "#551A8B",
-            width: "200px",
-            height: "50px",
-            color: "white",
-            zIndex: "-1",
-            ":hover": { backgroundColor: "#551A8B", color: "white" },
-          }}
-        >
-          Add to Cart
-        </Button>
+        <div className="select">
+          <label>Quantity</label>
+          <select onChange={handleChangeQuantity} value={quantity}>
+            { levelSelect.map( (item,index) =>(
+              <option value={item.value} key={index}>{item.value}</option>
+            ) ) }
+          </select>
+        </div>
+        <button disabled={loading} onClick={(e)=>handleAddToCart(e)}>{loading ? "Add to Cart..." : "Add to Cart" }</button>
       </div>
       <div className="desc">
-        <Accordion
-          sx={{ backgroundColor: "transparent", width: "400px", /* zIndex: "-1" */ }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-            sx={{ backgroundColor: "transparent" }}
-          >
-            Description
-          </AccordionSummary>
-          <AccordionDetails>
-             {product.description}
-          </AccordionDetails>
-        </Accordion>
+        <label>Description</label>
+        <p>{product.description}</p>
       </div>
     </div>
   );

@@ -97,8 +97,8 @@ const Overs3 = () => {
             },
           }}
         >
-          {list.map((item) => (
-            <SwiperSlide>
+          {list.map((item,index) => (
+            <SwiperSlide key={index}>
               <CardProduct image={item.image}  />
             </SwiperSlide>
           ))}

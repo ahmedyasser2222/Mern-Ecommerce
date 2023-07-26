@@ -1,18 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Rate from "../../../components/Rate";
 import { Button, MenuItem, Select } from "@mui/material";
 import Delete from "@mui/icons-material/Delete";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { setToast } from "../../../redux/slices/toastSlice";
+import { decrementCartproduct } from "../../../redux/slices/userSlices";
+import axios from "axios"
+import { URL } from "../../../API"
 
-const ProductCart = () => {
+const ProductCart = ({product,deleteProduct} ) => {
+
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleDeleteProduct = async(e)=>{
+    e.preventDefault() 
+    const body = {
+      _id : product.product._id,
+    }
+      try {
+        setLoading(true);
+        const res = await axios.post(`${URL}/api/v1/deleteproductfromcart`, body , { headers : { Authorization :`Bearer ${Cookies.get("token")}` } });
+        setLoading(false);
+        dispatch(setToast({open : true , text : res.data.message , mode : "success" }))
+        dispatch(decrementCartproduct())
+        deleteProduct(product)
+      } catch (err) {
+         setLoading(false);
+         dispatch(setToast({open : true , text : err.response.data.message , mode : "error" }))
+      }
+    };
+ 
   return (
     <div className="product-cart">
       <div className="div-img">
-        <img src="https://f.nooncdn.com/p/pzsku/ZE2184DCE6F2B97B7DE72Z/45/_/1665591709/f006e417-7b51-40a6-a842-219c988e3a49.jpg?format=avif&width=240" />
+        <img src={product.product.images[0].url} />
       </div>
       <div className="details">
         <div>
-          <p className="cat">Category name</p>
-          <p className="name">Baby Boys Logo Jogger Set 1-2y years</p>
+          {/* <p className="cat"> <Text t={pro.category.name}/></p> */}
+          <p className="name">{product.product.name } </p>
           <Rate singleProduct />
           <p className="price">
             <span>EGP</span> 180
@@ -30,9 +58,9 @@ const ProductCart = () => {
               <MenuItem value={2}>2</MenuItem>
               <MenuItem value={3}>3</MenuItem>
             </Select>
-            <Button sx={{ color: "#868992" }}>
+            <Button disabled={loading} sx={{ color: "#868992" }} onClick={handleDeleteProduct}>
               <Delete />
-              Delete
+              {loading ? "Delete..." : "Delete"}
             </Button>
           </div>
         </div>

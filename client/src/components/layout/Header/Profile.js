@@ -45,7 +45,7 @@ const Profile = ({ logout }) => {
           overflow: "hidden",
         }}
       >
-        <Tooltip title={`Cart (${userData.user.cart.length})`}>
+        <Tooltip title={`Cart (${userData.cartProductsNum})`}>
           <IconButton
             onClick={() => navigate("/cart")}
             size="small"
@@ -113,9 +113,7 @@ const Profile = ({ logout }) => {
         <MenuItem onClick={handleClose}>
           <Avatar /> Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ShoppingCart /> Cart
-        </MenuItem>
+        
         <Divider />
         <MenuItem onClick={() => handleLogout()}>
           <ListItemIcon>

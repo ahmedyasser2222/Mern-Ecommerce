@@ -108,8 +108,8 @@ const Categories = () => {
             },
           }}
       >
-        {list.map((item) => (
-          <SwiperSlide>
+        {list.map((item,index) => (
+          <SwiperSlide key={index}>
             <div className="cat">
               <img src={item.image} />
             </div>

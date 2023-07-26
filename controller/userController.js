@@ -53,7 +53,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
       .status(401)
       .json({ success: false, message: "Invalid email or password" });
   }
-  user.password = null
+  user.password = null;
   sendToken(user, 200, res);
 });
 
@@ -139,9 +139,9 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 // Get User Detail
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findById(req.user._id)
-    .populate("cart.product")
-    .populate("cart.category")
+  const user = await User.findById(req.user._id);
+  /* .populate("cart.product")
+    .populate("cart.category") */
 
   res.status(200).json({
     success: true,
@@ -149,9 +149,9 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// Cart User
 exports.addProductToCart = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.body._id);
-  console.log(req.user.cart);
 
   if (!product)
     res
@@ -180,4 +180,40 @@ exports.addProductToCart = catchAsyncErrors(async (req, res, next) => {
         .json({ success: true, message: "Product add to cart , successfully" });
     }
   }
+});
+
+exports.deleteProductFromCart = catchAsyncErrors(async (req, res, next) => {
+  const product = await Product.findById(req.body._id);
+
+  if (!product)
+    res
+      .status(404)
+      .json({ success: false, message: "This product not found " });
+  else {
+    const productCart = req.user.cart.filter((item) => {
+      return item.product == req.body._id;
+    });
+    const index = req.user.cart.indexOf(productCart[0]);
+    if (index == -1)
+      res
+        .status(404)
+        .json({ success: false, message: "This product not found " });
+    req.user.cart.splice(index, 1)
+    await User.findByIdAndUpdate(req.user._id , {cart : req.user.cart } )    
+    res
+        .status(200)
+        .json({ success: true, message: "Product Deleted" , index });
+  }
+});
+
+exports.getCartProducts = catchAsyncErrors(async (req, res, next) => {
+  const cartProducts = await User.findById(req.user._id)
+    .populate("cart.product")
+    .populate("cart.category")
+    .select(["cart"]);
+
+  res.status(200).json({
+    success: true,
+    cartProducts,
+  });
 });

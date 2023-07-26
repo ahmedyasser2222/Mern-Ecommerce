@@ -110,7 +110,7 @@ export default function TemporarDrawer({ open, setOpen, logout }) {
 
       <List>
         {linksHeader.map((item, index) => (
-          <CustomeListItem Icon={item.Icon} text={item.title} url={item.url} />
+          <CustomeListItem Icon={item.Icon} text={item.title} url={item.url} key={index} />
         ))}
       </List>
       <Divider />
@@ -123,6 +123,7 @@ export default function TemporarDrawer({ open, setOpen, logout }) {
               Icon={item.Icon}
               text={item.title}
               url={item.url}
+              key={index}
             />
           ))}
         </List>
