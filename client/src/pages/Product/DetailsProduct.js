@@ -19,7 +19,7 @@ import { setToast } from "../../redux/slices/toastSlice";
 import { URL } from "../../API";
 import { incrementCartproduct } from "../../redux/slices/userSlices"
 
-const DetailsProduct = ({ product }) => {
+const DetailsProduct = ({ product = { category : { name : "" } } }) => {
   const [quantity, setQuantity] = useState(1);
   const [levelSelect, setLevelSelect] = useState([
     { value: 1 },
