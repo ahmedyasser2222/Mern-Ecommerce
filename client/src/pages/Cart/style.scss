@@ -203,4 +203,15 @@
             }
         }
     }
+    .checkout{
+        .checkout-wrapper{
+            width: 80% !important ;
+        }
+        .shopping-info{
+           flex-direction: column;
+           div {
+            width: 100%;
+           }            
+        }
+    }
 }
