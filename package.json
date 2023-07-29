@@ -21,7 +21,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "dev":"nodemon app"
+    "dev":"nodemon index.js"
   },
   "keywords": [],
   "author": "",
